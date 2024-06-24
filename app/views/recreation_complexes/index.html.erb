@@ -1,0 +1,11 @@
+<h1>All Recreation Complexes</h1>
+
+<ul>
+  <% @recreation_complexes.each do |complex| %>
+    <li>
+      <strong><%= complex.name %></strong><br>
+      Address: <%= complex.address %><br>
+    </li>
+    <br>
+  <% end %>
+</ul>

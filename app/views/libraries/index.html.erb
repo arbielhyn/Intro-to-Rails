@@ -1,0 +1,12 @@
+<h1>Libraries</h1>
+<ul>
+  <% @libraries.each do |library| %>
+    <li>
+      <strong>Name:</strong> <%= library.name %><br>
+      Address: <%= library.address %><br>
+      Notes: <%= library.notes %><br>
+      Website: <%= link_to library.website, library.website, target: '_blank' if library.website.present? %><br>
+    </li>
+    <br>
+  <% end %>
+</ul>

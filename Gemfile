@@ -1,6 +1,9 @@
 source "https://rubygems.org"
 
 ruby "3.3.0"
+# Datasets
+gem 'csv'
+gem 'open-uri'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.1.3", ">= 7.1.3.4"

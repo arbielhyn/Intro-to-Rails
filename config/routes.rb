@@ -1,10 +1,17 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  root 'recreation_complexes#index' # Set the root route
 
-  # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
-  # Can be used by load balancers and uptime monitors to verify that the app is live.
+  # Define resources for each controller
+  resources :recreation_complexes, only: [:index]
+  resources :libraries, only: [:index]
+  resources :fitness_centers, only: [:index]
+
+  # You don't need these redundant routes if you're using resources above
+  # get 'fitness_centers/index'
+  # get 'libraries/index'
+  # get 'recreation_complexes/index'
+
+  # Define your application routes per the Rails DSL
+  # For health check endpoint
   get "up" => "rails/health#show", as: :rails_health_check
-
-  # Defines the root path route ("/")
-  # root "posts#index"
 end

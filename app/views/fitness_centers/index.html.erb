@@ -1,0 +1,12 @@
+<h1>Fitness Centers</h1>
+<ul>
+  <% @fitness_centers.each do |fitness_center| %>
+    <li>
+      <strong>Name:</strong> <%= fitness_center.name %><br>
+      <strong>Address:</strong> <%= fitness_center.address %><br>
+      <strong>Notes:</strong> <%= fitness_center.notes %><br>
+      <strong>Website:</strong> <%= link_to fitness_center.website, fitness_center.website, target: '_blank' if fitness_center.website.present? %>
+    </li>
+    <br>
+  <% end %>
+</ul>
