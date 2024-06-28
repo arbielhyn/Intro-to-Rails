@@ -1,10 +1,14 @@
 Rails.application.routes.draw do
+  get 'about/index'
+  get 'recreation_complex/show'
   root 'recreation_complexes#index' # Set the root route
 
   # Define resources for each controller
-  resources :recreation_complexes, only: [:index]
+  resources :recreation_complexes, only: [:index, :show]
   resources :libraries, only: [:index]
   resources :fitness_centers, only: [:index]
+
+  get 'about', to: 'about#index'
 
   # You don't need these redundant routes if you're using resources above
   # get 'fitness_centers/index'

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Recreation</title>
+  <title>Project</title>
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
 
@@ -14,9 +14,17 @@
         <li><%= link_to 'Recreation Complexes', recreation_complexes_path %></li>
         <li><%= link_to 'Libraries', libraries_path %></li>
         <li><%= link_to 'Fitness Centers', fitness_centers_path %></li>
+        <li><%= link_to 'About', about_path %></li>
       </ul>
     </nav>
   </header>
+
+  <%= form_with(url: recreation_complexes_path, method: "get", local: true) do |form| %>
+    <div>
+      <%= form.text_field :search, placeholder: "Search by name...", class: "form-control" %>
+    </div>
+    <%= form.submit "Search" %>
+  <% end %>
 
   <main>
     <%= yield %>

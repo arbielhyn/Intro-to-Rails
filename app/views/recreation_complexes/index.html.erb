@@ -1,11 +1,19 @@
+<!-- app/views/recreation_complexes/index.html.erb -->
+
 <h1>All Recreation Complexes</h1>
 
+<%= paginate @recreation_complexes %>
+
+<% if @recreation_complexes.any? %>
 <ul>
   <% @recreation_complexes.each do |complex| %>
     <li>
-      <strong><%= complex.name %></strong><br>
-      Address: <%= complex.address %><br>
+      <strong><%= link_to complex.name, recreation_complex_path(complex) %></strong><br>
     </li>
     <br>
   <% end %>
 </ul>
+
+<% else %>
+  <p>No results found.</p>
+<% end %>
