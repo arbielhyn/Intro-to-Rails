@@ -1,19 +1,30 @@
 <!-- app/views/recreation_complexes/index.html.erb -->
 
-<h1>All Recreation Complexes</h1>
+<div class="container mx-auto p-4">
+  <h1 class="text-3xl font-bold mb-4">All Recreation Complexes</h1>
 
-<%= paginate @recreation_complexes %>
+  <div class="mb-4">
+    <%= paginate @recreation_complexes %>
+  </div>
 
-<% if @recreation_complexes.any? %>
-<ul>
-  <% @recreation_complexes.each do |complex| %>
-    <li>
-      <strong><%= link_to complex.name, recreation_complex_path(complex) %></strong><br>
-    </li>
-    <br>
+  <% if @recreation_complexes.any? %>
+    <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <% @recreation_complexes.each do |complex| %>
+        <li class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-200">
+          <%= link_to recreation_complex_path(complex), class: "block p-4", style: "text-decoration: none;" do %>
+            <div>
+              <strong class="block text-xl mb-2 text-blue-600 hover:text-blue-700 hover:underline">
+                <%= complex.name %>
+              </strong>
+              <p class="text-gray-600">
+                <!-- Add additional complex details here if needed -->
+              </p>
+            </div>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+  <% else %>
+    <p class="text-gray-500">No results found.</p>
   <% end %>
-</ul>
-
-<% else %>
-  <p>No results found.</p>
-<% end %>
+</div>
