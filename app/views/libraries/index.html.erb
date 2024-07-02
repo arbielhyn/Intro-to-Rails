@@ -4,7 +4,7 @@
 <ul>
   <% @libraries.each do |library| %>
     <li>
-      <strong><%= link_to library.name, libraries_path(library) %></strong><br>
+      <strong><%= link_to library.name, library_path(library) %></strong><br>
     </li>
     <br>
   <% end %>

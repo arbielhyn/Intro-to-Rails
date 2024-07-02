@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_25_164938) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_28_024233) do
   create_table "fitness_centers", force: :cascade do |t|
     t.string "name"
     t.string "address"
@@ -45,6 +45,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_25_164938) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "library"
+    t.integer "recreation_complex_id"
   end
 
   add_foreign_key "fitness_centers", "recreation_complexes"

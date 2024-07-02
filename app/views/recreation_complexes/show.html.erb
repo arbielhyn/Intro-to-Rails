@@ -1,15 +1,12 @@
 <!-- app/views/recreation_complexes/show.html.erb -->
-
 <h1><%= @recreation_complex.name %></h1>
-<p><strong>Address:</strong> <%= @recreation_complex.address %></p>
 
-  <ul>
-    <% @libraries.each do |library| %>
-      <li>
-        <strong>Name:</strong> <%= library.name %><br>
-        <strong>Notes:</strong> <%= library.notes %><br>
-        <strong>Website:</strong> <%= link_to library.website, library.website %>
-      </li>
-    <% end %>
-  </ul>
-
+<% if @library %>
+  <h2>Library Information</h2>
+  <p>Name: <%= @library.name %></p>
+  <p>Address: <%= @library.address %></p>
+  <p>Notes: <%= @library.notes %></p>
+  <p>Website: <%= @library.website %></p>
+<% else %>
+  <p>No library associated with this recreation complex.</p>
+<% end %>

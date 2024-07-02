@@ -9,6 +9,6 @@ class RecreationComplexesController < ApplicationController
 
   def show
     @recreation_complex = RecreationComplex.find(params[:id])
-    @libraries = Library.where("name LIKE ?", "%#{@recreation_complex.name}%")
+    @libraries = @recreation_complex.library
   end
 end

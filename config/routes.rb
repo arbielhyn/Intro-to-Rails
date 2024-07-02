@@ -6,14 +6,8 @@ Rails.application.routes.draw do
   # Define resources for each controller
   resources :recreation_complexes, only: [:index, :show]
   resources :libraries, only: [:index]
-  resources :fitness_centers, only: [:index]
 
   get 'about', to: 'about#index'
-
-  # You don't need these redundant routes if you're using resources above
-  # get 'fitness_centers/index'
-  # get 'libraries/index'
-  # get 'recreation_complexes/index'
 
   # Define your application routes per the Rails DSL
   # For health check endpoint
