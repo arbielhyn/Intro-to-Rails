@@ -9,6 +9,8 @@ class RecreationComplexesController < ApplicationController
 
   def show
     @recreation_complex = RecreationComplex.find(params[:id])
-    @libraries = @recreation_complex.library
+    @libraries = @recreation_complex.libraries
+    @facilities = @recreation_complex.facilities
   end
+
 end
