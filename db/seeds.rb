@@ -63,13 +63,4 @@ library_data.each do |lib_row|
     puts "Recreation Complex or Category not found for Library: #{lib_row['Name']}"
   end
 
-  # Example for Facility seeding
-CSV.foreach(Rails.root.join('db/seeds/facility.csv'), headers: true) do |row|
-  facility = Facility.new(
-    name: row['name'],
-    description: row['description'],
-    recreation_complex_id: RecreationComplex.find_by(name: row['recreation_complex']).id # Assuming 'recreation_complex' column in CSV matches recreation complex name
-  )
-  facility.save!
-end
 end
